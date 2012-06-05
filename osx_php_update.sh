@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # author: Ray Viljoen
-#
+# link: git remote add origin https://github.com/RayViljoen/Mac-PHP-Update.git
 # Simple bash script to update OS X's bundled PHP to vers 5.4.
 # Any problems please let me know at: https://github.com/RayViljoen
 

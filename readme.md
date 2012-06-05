@@ -1,6 +1,6 @@
 #PHP v5.4 update for Mac OS X Lion.
 
-####**Shell script to update Mac OS X's bundled PHP to version 5.4.**
+####**Shell script to update Mac OS X's bundled PHP to latest 5.4***
 
 ---
 
