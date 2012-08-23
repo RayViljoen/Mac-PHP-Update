@@ -11,8 +11,11 @@ echo -n "This update will take SEVERAL minutes to complete. Continue? (y/n)"
 read ans
 [ $ans == "n" ] && echo "OK, Bye!" && exit 0 || echo "Excellent. Let's begin..." && sleep 1
 
+sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+ln -s /opt/X11 /usr/X11
+
 # Download link. Update if needed. Currently at 5.4.3 (And obviously stick with a .tar.gz)
-PHP_SRC_LINK="http://uk3.php.net/get/php-5.4.3.tar.gz/from/this/mirror"
+PHP_SRC_LINK="http://uk3.php.net/get/php-5.4.6.tar.gz/from/this/mirror"
 
 # Src target
 PHP_SRC_DEST="${HOME}/Downloads/"
@@ -41,7 +44,12 @@ echo "
 --------------------------
 2/10 - Installing libjpeg.
 --------------------------"
-sleep 1 && brew install libjpeg
+sleep 1
+
+brew install libjpeg
+brew install pcre
+brew install libxml2
+brew install mcrypt
 
 # Install pcre
 echo "
