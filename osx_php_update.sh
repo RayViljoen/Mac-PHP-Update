@@ -14,13 +14,13 @@ read ans
 sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 ln -s /opt/X11 /usr/X11
 
-# Download link. Update if needed. Currently at 5.4.3 (And obviously stick with a .tar.gz)
-PHP_SRC_LINK="http://uk3.php.net/get/php-5.4.6.tar.gz/from/this/mirror"
-
 # Src target
 PHP_SRC_DEST="${HOME}/Downloads/"
 
-PHP_SRC_DIR="${PHP_SRC_DEST}"php-5.4.3
+PHP_SRC_DIR="${PHP_SRC_DEST}"php-5.4.6
+
+# Download link. Update if needed. Currently at 5.4.6 (And obviously stick with a .tar.gz)
+PHP_SRC_LINK="http://uk3.php.net/get/php-5.4.6.tar.gz/from/this/mirror"
 
 # Check for homebrew
 command -v brew >/dev/null 2>&1 || { echo >&2 "
