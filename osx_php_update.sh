@@ -20,7 +20,7 @@ PHP_SRC_DEST="${HOME}/Downloads/"
 PHP_SRC_DIR="${PHP_SRC_DEST}"php-5.4.6
 
 # Download link. Update if needed. Currently at 5.4.6 (And obviously stick with a .tar.gz)
-PHP_SRC_LINK="http://uk3.php.net/get/php-5.4.9.tar.gz/from/this/mirror"
+PHP_SRC_LINK="http://uk3.php.net/get/php-5.4.10.tar.gz/from/this/mirror"
 
 # Check for homebrew
 command -v brew >/dev/null 2>&1 || { echo >&2 "
@@ -34,29 +34,19 @@ Visit http://mxcl.github.com/homebrew/ for more info on installing Homebrew."; e
 
 # Update homebrew
 echo "
------------------------------------------------------
-1/10 - Updating Homebrew and installing dependencies.
------------------------------------------------------"
+-------------------------
+1/9 - Updating Homebrew.
+-------------------------"
 sleep 1 && brew update
 
-# Install libjpeg
+# Install dependancies
 echo "
---------------------------
-2/10 - Installing libjpeg.
---------------------------"
+-------------------------------
+2/9 - Installing dependancies.
+-------------------------------"
 sleep 1
 
-brew install libjpeg
-brew install pcre
-brew install libxml2
-brew install mcrypt
-
-# Install pcre
-echo "
------------------------
-3/10 - Installing pcre.
------------------------"
-sleep 1 && brew install pcre
+brew install libjpeg pcre libxml2 mcrypt
 
 # Set -e as brew install stop script if already installed
 set -e
@@ -64,14 +54,14 @@ set -e
 # Download latest PHP to ~/Downloads
 echo "
 -------------------------------
-4/10 - Downloading PHP 5.4 src.
+3/9 - Downloading PHP 5.4 src.
 -------------------------------"
 sleep 1 && curl -L "${PHP_SRC_LINK}" > "${PHP_SRC_DIR}.tar.gz"
 
 # Extract src and move to
 echo "
 ----------------------
-5/10 - Extracting src.
+4/9 - Extracting src.
 ----------------------"
 cd "${PHP_SRC_DEST}"
 sleep 1 && tar -zxvf "${PHP_SRC_DIR}.tar.gz"
@@ -80,7 +70,7 @@ cd "${PHP_SRC_DIR}"
 # Configure src
 echo "
 -----------------------
-6/10 - Configuring src.
+5/9 - Configuring src.
 -----------------------"
 sleep 1
 ./configure  \
@@ -140,7 +130,7 @@ sleep 1
 # Install
 echo "
 ---------------------------------------------------
-7/10 - Installing PHP 5.4 - sudo password required.
+6/9 - Installing PHP 5.4 - sudo password required.
 ---------------------------------------------------"
 sleep 2
 
@@ -154,7 +144,7 @@ sudo make install
 # Clean up
 echo "
 -----------------------------
-8/10 - Cleaning up src files.
+7/9 - Cleaning up src files.
 -----------------------------"
 cd "${HOME}"
 sleep 1
@@ -164,12 +154,12 @@ rm -rf "${PHP_SRC_DIR}"
 # Print version
 echo "
 ----------------------------
-9/10 - Checking PHP version.
+8/9 - Checking PHP version.
 ----------------------------"
 php --version
 
 # Done
 echo "
 -----------------
-10/10 - All done.
+9/9 - All done.
 -----------------"
