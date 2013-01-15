@@ -45,7 +45,12 @@ echo "
 -------------------------
 1/9 - Updating Homebrew.
 -------------------------"
-sleep 1 && brew update
+sleep 1
+
+# Check if user executed with sudo and set to user as homebrew doesn't want sudo
+if [[ $SUDO_USER ]]; then sudo -u $SUDO_USER brew update
+else brew update
+fi
 
 # Install dependancies
 echo "
@@ -54,7 +59,10 @@ echo "
 -------------------------------"
 sleep 1
 
-brew install libjpeg pcre libxml2 mcrypt
+# Check if user executed with sudo and set to user as homebrew doesn't want sudo
+if [[ $SUDO_USER ]]; then sudo -u $SUDO_USER brew install libjpeg pcre libxml2 mcrypt
+else brew install libjpeg pcre libxml2 mcrypt
+fi
 
 # Set -e as brew install stop script if already installed
 set -e
