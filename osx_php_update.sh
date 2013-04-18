@@ -17,7 +17,7 @@ ln -s /opt/X11 /usr/X11
 # =================================================
 # Update download version here
 # Should simply increment on mirror site
-PHP_VERS="5.4.10"
+PHP_VERS="5.4.14"
 # =================================================
 
 # Src target
